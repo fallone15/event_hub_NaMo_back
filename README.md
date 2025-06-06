@@ -41,23 +41,30 @@ Ce dépôt contient la partie **backend** de l'application Campus Events Hub. El
 
 
 ## ⚙️ Installation
-
-1. Cloner le dépôt :
+ Cloner le dépôt :
 ```bash
 git clone https://github.com/ton-utilisateur/nom-du-repo.git
 cd back_end
 ```
 
-3. creer un fichier .env a la racine de ton projet
+## Configuration du fichier .env
+creer un fichier `.env`a la racine de ton projet
+```env
 DB_HOST=localhost
 DB_USER=ton_user
 DB_PASSWORD=ton_mdp
 DB_NAME=nom_de_ta_db
 SESSION_SECRET=un_secret_long
-4.lancer le serveur 
+SENDGRID_API_KEY=ta_clef_sendgrid
+```
+
+## lancement du serveur 
 ```bash 
 node index.js
 ```
+Le serveur devrait démarrer et être accessible sur l'adresse indiquée dans la console (souvent http://localhost:5000).
+
+## notes
 
 📌 Points d’accès API
 POST /api/auth/login → Connexion
@@ -75,6 +82,25 @@ GET /api/events/:id/registration-status/:user_id → Vérifie l’inscription
 GET /api/user/:id/notifications → Notifications d’un utilisateur
 
 POST /api/user/:id/notifications → Créer une notification pour un utilisateur
+
+### Fonctionnalité d’envoi d’e-mails avec SendGrid
+
+Ce backend utilise **SendGrid** pour gérer l’envoi d’e-mails, notamment pour les notifications et les confirmations d'inscription.
+
+- L’intégration est réalisée via l’API SendGrid.
+- Le service d’envoi est encapsulé dans une fonction (par exemple `sendMail`) pour faciliter l’utilisation dans le code.
+- Lorsqu’un utilisateur s’inscrit à un événement, un e-mail de confirmation est automatiquement envoyé via SendGrid a l'organisateur de l'evenement et à l'utilisateur 
+- Le système crée également une notification en base de données en lien avec cet envoi.
+
+Pour utiliser SendGrid, il faut configurer la clé API dans les variables d’environnement (exemple : `SENDGRID_API_KEY`).
+
+```js
+// Exemple d’utilisation dans le code backend
+sendMail({
+  to: user.email,
+  subject: "Confirmation d'inscription",
+  text: " Bonjour ${username} Vous êtes bien inscrit(e) à l'événement (ID : ${event_id}).Statut RSVP : ${status}.Merci pour votre participation !Cordialement,EventHub!"
+```
 
 🔧 Suggestions
 1.Ajouter des tests unitaires avec Jest
