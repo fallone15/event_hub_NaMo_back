@@ -63,24 +63,17 @@ node index.js
 ```
 Le serveur devrait démarrer et être accessible sur l'adresse indiquée dans la console (souvent http://localhost:5000).
 
-## notes
+## 📌 Points d’accès API
 
-📌 Points d’accès API
-POST /api/auth/login → Connexion
+```http
+POST   /api/auth/login                           → Connexion
+GET    /api/auth/status                          → Vérifie si l’utilisateur est connecté
+GET    /api/events                               → Liste des événements
+GET    /api/events/:id                           → Détail d’un événement
+POST   /api/attendance                           → Inscription à un événement
+GET    /api/events/:id/registration-status/:uid  → Vérifie l’inscription
+```
 
-GET /api/auth/status → Vérifie si l’utilisateur est connecté
-
-GET /api/events → Liste des événements
-
-GET /api/events/:id → Détail d’un événement
-
-POST /api/attendance → Inscription à un événement
-
-GET /api/events/:id/registration-status/:user_id → Vérifie l’inscription
-
-GET /api/user/:id/notifications → Notifications d’un utilisateur
-
-POST /api/user/:id/notifications → Créer une notification pour un utilisateur
 
 ## Fonctionnalité d’envoi d’e-mails avec SendGrid
 
