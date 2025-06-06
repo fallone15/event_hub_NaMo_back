@@ -103,10 +103,12 @@ sendMail({
   ```
 
 🔧 Suggestions
+ ```
 1.Ajouter des tests unitaires avec Jest
 2.Protéger certaines routes avec des rôles (admin/user)
 3.Logger les erreurs et les accès
 4.Gérer la lecture et suppression des notifications
+ ```
 
 ## 📝 Licence
 Ce projet est sous licence MIT.
