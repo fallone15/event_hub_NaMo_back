@@ -31,9 +31,6 @@ Ce dépôt contient la partie **backend** de l'application Campus Events Hub. El
 ├── config/
 │ └── db.js → Configuration de la base de données MySQL
 │
-├── middleware/
-│ └── authMiddleware.js → Vérification de session
-│
 ├── back.js → Point d’entrée de l’application
 ├── package.json → Dépendances Node.js
 ├── .env → Variables d’environnement (non versionné)
