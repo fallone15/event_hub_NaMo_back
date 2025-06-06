@@ -13,8 +13,33 @@ Ce dépôt contient la partie **backend** de l'application Campus Events Hub. El
 - Connexion à une base de données **MySQL**
 
 ## 📁 Structure des fichiers
-
-<pre> /front_end │ ├── css/ │ ├── projettry2.css → Feuille de style principale │ ├── register.css → Style pour la page d’inscription │ └── login.css → Style pour la page de connexion │ ├── js/ │ ├── event_projecttry2.js → Script pour la page browse-events │ └── events.js → Script pour affichage + inscriptions │ ├── home.html → Page d’accueil ├── login.html → Page de connexion ├── register.html → Page d’inscription ├── events.html → Liste et détails des événements └── LICENSE → Fichier de licence </pre>
+```
+/back_end
+│
+├── controllers/
+│ ├── auth_controller.js → Connexion, vérification de session
+│ ├── event_controller.js → CRUD des événements
+│ ├── attendance_controller.js → Inscriptions / RSVP
+│ └── user_controller.js → Notifications et infos utilisateur
+│
+├── routes/
+│ ├── auth.js → Routes pour l’authentification
+│ ├── events.js → Routes pour les événements
+│ ├── attendance.js → Routes pour les inscriptions
+│ └── user.js → Routes utilisateur (notifications, profil)
+│
+├── config/
+│ └── db.js → Configuration de la base de données MySQL
+│
+├── middleware/
+│ └── authMiddleware.js → Vérification de session
+│
+├── back.js → Point d’entrée de l’application
+├── package.json → Dépendances Node.js
+├── .env → Variables d’environnement (non versionné)
+├── .gitignore → Pour ignorer .env et autres fichiers sensibles
+└── LICENSE → Licence du projet (MIT)
+```
 
 
 ## ⚙️ Installation
