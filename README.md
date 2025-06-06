@@ -83,7 +83,7 @@ GET /api/user/:id/notifications → Notifications d’un utilisateur
 
 POST /api/user/:id/notifications → Créer une notification pour un utilisateur
 
-### Fonctionnalité d’envoi d’e-mails avec SendGrid
+## Fonctionnalité d’envoi d’e-mails avec SendGrid
 
 Ce backend utilise **SendGrid** pour gérer l’envoi d’e-mails, notamment pour les notifications et les confirmations d'inscription.
 
