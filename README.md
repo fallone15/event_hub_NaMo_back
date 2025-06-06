@@ -87,12 +87,20 @@ Ce backend utilise **SendGrid** pour gérer l’envoi d’e-mails, notamment pou
 Pour utiliser SendGrid, il faut configurer la clé API dans les variables d’environnement (exemple : `SENDGRID_API_KEY`).
 
 ```js
-// Exemple d’utilisation dans le code backend
+// Exemple d’utilisation dans le code backend pour celui qui s'inscrit
 sendMail({
   to: user.email,
   subject: "Confirmation d'inscription",
-  text: " Bonjour ${username} Vous êtes bien inscrit(e) à l'événement (ID : ${event_id}).Statut RSVP : ${status}.Merci pour votre participation !Cordialement,EventHub!"
+  text: " Bonjour ${username} Vous êtes bien inscrit(e) à l'événement (ID : ${event_id}).Statut RSVP : ${status}.Merci pour votre participation !Cordialement,EventHub!")}
 ```
+
+```js
+// Exemple d’utilisation dans le code backend pour l'organisteur
+sendMail({
+  to: organizer.email,
+  subject: "nouvelle inscription a votre evenement",
+  text: " Bonjour . l'utilisateur ${username} vient de s'inscrire  à votre événement (ID : ${event_id}).Statut RSVP : ${status}. !Cordialement,EventHub!")}
+  ```
 
 🔧 Suggestions
 1.Ajouter des tests unitaires avec Jest
